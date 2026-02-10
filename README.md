@@ -93,7 +93,3 @@ docker run -p 80:80 plant-vision-system
 - The project includes data augmentation and MobileNetV2 transfer learning suitable for edge deployment.
 - Large files such as `data/` and `models/` are in `.gitignore` by default; store large artifacts externally.
 
-If you want, I can now:
-- Verify the `venv` installs and re-run the training command,
-- Start a smoke-test of the FastAPI server,
-- Or push this repo to a remote (I will need the remote URL).
