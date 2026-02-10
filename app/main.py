@@ -173,21 +173,21 @@ async def batch_predict(files: list[UploadFile] = File(...)):
         raise HTTPException(status_code=500, detail="Model not loaded")
     
     results = []
-    
+
     for file in files:
         try:
             image_bytes = await file.read()
             img_array = preprocess_image(image_bytes)
             predictions = run_inference(img_array)
-            
+
+            class_idx = int(np.argmax(predictions[0]))
+            confidence = float(np.max(predictions[0]))
             class_name = CLASS_LABELS.get(class_idx, f"Class_{class_idx}")
-            
+
             results.append({
                 "filename": file.filename,
                 "class": class_name,
-                "class_id
-                "filename": file.filename,
-                "predicted_class": class_idx,
+                "class_id": class_idx,
                 "confidence": round(confidence, 4),
                 "status": "success"
             })
