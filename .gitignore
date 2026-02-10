@@ -47,3 +47,11 @@ models/
 # Others
 *.zip
 *.tar.gz
+
+# User additions
+text
+venv/
+__pycache__/
+.DS_Store
+data/
+models/*.keras
