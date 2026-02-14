@@ -1,4 +1,5 @@
 # Edge-Optimized Production Vision System
+Tech Stack: Python 3.10+ | TensorFlow/TFLite | FastAPI | Docker | MobileNetV2 | OpenCV
 
 Small, edge-friendly FastAPI service for plant image classification using MobileNetV2.
 
@@ -86,8 +87,11 @@ Build and run the container:
 docker build -t plant-vision-system .
 docker run -p 80:80 plant-vision-system
 ```
+NB: source venv/bin/activate && python ... (for Linux/macOS).
 
 ## Notes
+Latency Optimized: Quantify the performance (e.g., "Achieved <50ms inference time on Raspberry Pi 4 using TFLite quantization").
+Scalable Architecture: Mention the use of Uvicorn/Gunicorn for production-grade concurrency.
 
 - Update `app/main.py` → `CLASS_LABELS` to match the classes in your dataset.
 - The project includes data augmentation and MobileNetV2 transfer learning suitable for edge deployment.
